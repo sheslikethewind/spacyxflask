@@ -1,0 +1,18 @@
+{% block content %}
+
+      <div id="output">
+            <ol class="list-unstyled">
+                {% if spaCyResponse|safe %}
+                    <div class="row">
+                    <li class="alert col-lg-10 mx-auto text-md-center" style="margin-top: 1rem; background: grey; color: #ffffff;">
+                        {{ spaCyResponse|safe}}
+                    </li>
+                    </div>
+                {% else %}
+                    <li></li>
+                {% endif %}
+            </ol>
+
+      </div>
+
+{% endblock content %}

@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 from flask import Flask, render_template, request
-from spaCy_analysis import spaCy_analysis
+from utils.spaCy_analysis import spaCy_analysis
 
 app = Flask(__name__)
 

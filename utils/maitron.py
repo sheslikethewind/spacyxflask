@@ -1,9 +1,10 @@
 #! /usr/bin/env python
 import requests
 from bs4 import BeautifulSoup
+from .constants import MAITRON_BASE_URL
 
 def get_maitron_article(id: int) -> dict:
-    maitron_getter = requests.get("https://maitron.fr/spip.php?article" + str(id))
+    maitron_getter = requests.get(MAITRON_BASE_URL + str(id))
     maitron_response = maitron_getter.text
     soup = BeautifulSoup(maitron_response, 'html.parser')
     article_title = soup.find("h1", "notice-titre")

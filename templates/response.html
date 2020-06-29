@@ -1,19 +1,26 @@
 {% block content %}
 
 <div id="output">
-    <ol class="list-unstyled">
-        {% if coordonates|safe %}
-        <div class="row">
-            <li class="alert col-lg-10 mx-auto text-md-center"
-                style="margin-top: 1rem; background: grey; color: #ffffff;">
-                {{ cities|safe}}
-                <div id="map" style="height: 300px;"></div>
-            </li>
+    {% if coordonates|safe %}
+    <div class="row">
+        <div class="alert col mx-auto text-md-left" style="margin-top: 1rem; background: grey; color: #ffffff;">
+            {% if article|safe %}
+                <ol class="list-unstyled">
+                    <li>{{ article.article_title }}</li>
+                    <li>{{ article.article_intro }}</li>
+                    <li>{{ article.article_content }}</li>
+                </ol>
+            {% else %}
+            <div>Try again...</div>
+            {% endif %}
         </div>
-        {% else %}
-        <li></li>
-        {% endif %}
-    </ol>
+        <div class="alert col mx-auto text-md-center" style="margin-top: 1rem; background: grey; color: #ffffff;">
+            <div id="map" style="height: 450px;"></div>
+        </div>
+    </div>
+    {% else %}
+    <div></div>
+    {% endif %}
 
 </div>
 

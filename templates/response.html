@@ -1,14 +1,21 @@
 {% block content %}
 <div id="output">
-    {% if response|safe %}
+    {% if article|safe %}
         <div class="row">
             <div class="alert col mx-auto text-md-left" style="margin-top: 1rem; background: grey; color: #ffffff;">
-                {{ response }}
+                {% if article|safe %}
+                <ol class="list-unstyled">
+                    <li>{{ article.article_title }}</li>
+                    <li>{{ article.article_intro }}</li>
+                    <li>{{ article.article_content }}</li>
+                </ol>
+                {% else %}
+                <div>Try again...</div>
+                {% endif %}
             </div>
         </div>
     {% else %}
         <div></div>
     {% endif %}
-
 </div>
 {% endblock content %}

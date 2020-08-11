@@ -1,5 +1,7 @@
 #! /usr/bin/env python
 from flask import Flask, render_template, request
+from utils.maitron import get_maitron_article
+from utils.constants import ARTICLE_ID
 
 app = Flask(__name__)
 
@@ -11,11 +13,12 @@ def index():
 def response():
     try:
         if request.method == 'POST':
-            return render_template('index.html', response="Hello World")
+            article = get_maitron_article(id=ARTICLE_ID)
+            return render_template('index.html', article=article)
         else:
-            return render_template('index.html', response="Error: Please try again")
+            return render_template('index.html', article="Error: Please try again")
     except:
-        return render_template('index.html', response="Error: Please try again")
+        return render_template('index.html', article="Error: Please try again")
 
 
 if __name__ == '__main__':

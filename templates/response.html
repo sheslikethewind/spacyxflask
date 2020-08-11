@@ -8,6 +8,7 @@
                     <li>{{ article.article_title }}</li>
                     <li>{{ article.article_intro }}</li>
                     <li>{{ article.article_content }}</li>
+                    <li>{{ cities | safe }}</li>
                 </ol>
                 {% else %}
                 <div>Try again...</div>

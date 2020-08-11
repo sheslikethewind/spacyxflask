@@ -1,8 +1,4 @@
-# spaCy Playground v1.0.0
-
-## Preview
-
-![Preview](static/bootstrap/assets/img/preview.png)
+# spaCy cities finder v1.0.0
 
 ## SetUp
 

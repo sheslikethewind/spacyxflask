@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request
 from utils.spaCy_analysis import spaCy_analysis
 from utils.maitron import get_maitron_article
+from utils.coordinates import get_coordinates
 from utils.constants import ARTICLE_ID
 
 app = Flask(__name__)
@@ -16,7 +17,8 @@ def response():
         if request.method == 'POST':
             article = get_maitron_article(id=ARTICLE_ID)
             cities = spaCy_analysis()
-            return render_template('index.html', cities=str(len(cities)) + ' places found.', article=article)
+            coordinates = get_coordinates(entities=cities)
+            return render_template('index.html', coordinates=coordinates, cities=str(len(cities)) + ' places found.', article=article)
         else:
             return render_template('index.html', cities="Error: Please try again")
     except:

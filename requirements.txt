@@ -32,6 +32,6 @@ tqdm==4.46.1
 urllib3==1.26.5
 wasabi==0.6.0
 wcwidth==0.2.3
-Werkzeug==1.0.1
+Werkzeug==2.2.3
 zipp==3.1.0
 geopy==1.22.0
